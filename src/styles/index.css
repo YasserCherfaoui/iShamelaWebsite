@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-manuscript-paper font-body text-manuscript-ink text-[17px] leading-[1.65] antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-manuscript-madder ring-offset-2 ring-offset-manuscript-paper;
+  }
+
+  ::selection {
+    @apply bg-manuscript-madder/20 text-manuscript-ink;
+  }
+}
+
+@layer components {
+  .double-rule {
+    border: 1px solid theme('colors.manuscript.gold');
+    box-shadow: inset 0 0 0 5px theme('colors.manuscript.paper'),
+      inset 0 0 0 6px theme('colors.manuscript.ink');
+  }
+
+  .section-rule {
+    @apply border-t border-manuscript-gold/30;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-btn bg-manuscript-madder px-5 py-2.5
+      font-body text-base text-manuscript-paper no-underline transition-colors
+      hover:bg-manuscript-madder-deep;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-btn border border-manuscript-ink
+      bg-transparent px-5 py-2.5 font-body text-base text-manuscript-ink no-underline
+      transition-colors hover:border-manuscript-madder hover:text-manuscript-madder;
+  }
+
+  .link-text {
+    @apply text-manuscript-madder underline-offset-4 transition-colors hover:underline;
+  }
+
+  .prose-legal {
+    @apply max-w-none text-manuscript-ink;
+
+    h1 {
+      @apply mb-2 font-display text-3xl font-semibold tracking-tight text-manuscript-ink md:text-4xl;
+    }
+
+    h2 {
+      @apply mb-3 mt-8 font-display text-xl font-semibold tracking-tight text-manuscript-ink;
+    }
+
+    p {
+      @apply mb-4 max-w-[68ch];
+    }
+
+    ul {
+      @apply mb-4 list-disc space-y-2 pl-6;
+    }
+
+    a {
+      @apply link-text;
+    }
+
+    .todo-placeholder {
+      @apply rounded-btn border border-dashed border-manuscript-madder/60 bg-manuscript-madder/5
+        px-1.5 py-0.5 font-body text-manuscript-madder;
+    }
+  }
+}
+
+@layer utilities {
+  .paper-grain {
+    position: relative;
+  }
+
+  .paper-grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.03;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .paper-grain > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: hero-rise 500ms ease-out forwards;
+  }
+
+  .hero-reveal-delay-1 {
+    animation-delay: 80ms;
+  }
+
+  .hero-reveal-delay-2 {
+    animation-delay: 160ms;
+  }
+
+  .hero-reveal-delay-3 {
+    animation-delay: 240ms;
+  }
+
+  @keyframes hero-rise {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-reveal,
+    .hero-reveal-delay-1,
+    .hero-reveal-delay-2,
+    .hero-reveal-delay-3 {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
