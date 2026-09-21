@@ -2,18 +2,20 @@ import { links, openSource } from '../content/copy'
 
 export function OpenSource() {
   return (
-    <section className="section-rule">
-      <div className="mx-auto max-w-content px-5 py-24 md:px-8 md:py-28">
-        <h2 className="font-display text-3xl font-semibold tracking-tight text-manuscript-ink md:text-4xl">
+    <section className="pb-20 md:pb-24">
+      <div className="mx-auto flex max-w-content flex-col gap-6 border-t border-brand-gold/50 px-5 pt-14 md:px-8">
+        <h2 className="m-0 font-display text-[28px] font-semibold text-brand-forest md:text-[34px]">
           {openSource.title}
         </h2>
-        <p className="mt-6 max-w-[68ch] text-manuscript-ink-soft">{openSource.body}</p>
-        <div className="mt-8 flex flex-wrap items-center gap-5">
+        <p className="m-0 max-w-[760px] text-[17px] leading-[1.7] text-brand-ink">
+          {openSource.body}
+        </p>
+        <div className="flex flex-wrap items-center gap-5">
           <a
             href={links.github}
             target="_blank"
             rel="noopener"
-            className="btn-outline"
+            className="btn-outline px-[22px] py-3"
           >
             {openSource.starCta}
           </a>
@@ -21,7 +23,7 @@ export function OpenSource() {
             href={links.github}
             target="_blank"
             rel="noopener"
-            className="link-text"
+            className="link-text text-base"
           >
             {openSource.docsCta}
           </a>

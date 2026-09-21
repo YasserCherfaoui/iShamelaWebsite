@@ -2,21 +2,22 @@ import { howItWorks } from '../content/copy'
 
 export function HowItWorks() {
   return (
-    <section className="section-rule">
-      <div className="mx-auto max-w-content px-5 py-24 md:px-8 md:py-28">
-        <h2 className="font-display text-3xl font-semibold tracking-tight text-manuscript-ink md:text-4xl">
+    <section className="pb-20 md:pb-24">
+      <div className="mx-auto flex max-w-content flex-col gap-10 px-5 md:px-8">
+        <h2 className="m-0 font-display text-[28px] font-semibold text-brand-forest md:text-[34px]">
           {howItWorks.title}
         </h2>
-        <ol className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+        <ol className="m-0 grid list-none grid-cols-1 gap-10 p-0 md:grid-cols-3 md:gap-8">
           {howItWorks.steps.map((step) => (
-            <li key={step.number}>
-              <span className="font-display text-4xl font-semibold text-manuscript-gold/70">
+            <li key={step.number} className="flex flex-col gap-2.5">
+              <span className="font-display text-[58px] font-medium leading-none text-brand-forest">
                 {step.number}
               </span>
-              <h3 className="mt-3 font-display text-xl font-semibold text-manuscript-ink">
+              <div className="w-11 border-t-2 border-brand-gold" />
+              <h3 className="m-0 text-[19px] font-semibold text-brand-forest">
                 {step.title}
               </h3>
-              <p className="mt-2 max-w-[36ch] text-manuscript-ink-soft">{step.body}</p>
+              <p className="m-0 text-base leading-relaxed text-brand-muted">{step.body}</p>
             </li>
           ))}
         </ol>

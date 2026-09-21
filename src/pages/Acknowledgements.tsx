@@ -9,8 +9,8 @@ export function Acknowledgements() {
     <LegalLayout title={acknowledgements.title}>
       <p>{acknowledgements.intro}</p>
       {acknowledgements.sections.map((section, i) => (
-        <section key={i}>
-          <h2>{section.heading}</h2>
+        <section key={i} className="flex flex-col gap-2">
+          <h2 className="!mt-0">{section.heading}</h2>
           {'body' in section && section.body && <p>{section.body}</p>}
           {'datasets' in section && section.datasets && (
             <>

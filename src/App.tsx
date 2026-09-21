@@ -11,10 +11,10 @@ import { site } from './content/copy'
 
 function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className="paper-grain flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-brand-paper">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-btn focus:bg-manuscript-paper focus:px-4 focus:py-2 focus:text-manuscript-ink"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-btn focus:bg-brand-paper focus:px-4 focus:py-2 focus:text-brand-forest"
       >
         {site.skipToContent}
       </a>

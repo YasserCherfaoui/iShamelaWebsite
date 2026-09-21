@@ -1,74 +1,67 @@
-import { Search } from 'lucide-react'
-import { hero, links } from '../content/copy'
+import { hero, links, site } from '../content/copy'
+import { Rosette } from './Rosette'
 
 export function Hero() {
   return (
-    <section className="mx-auto max-w-content px-5 pb-20 pt-16 md:px-8 md:pb-28 md:pt-24">
-      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        <div>
-          <p
-            className="hero-reveal mb-4 font-arabic text-lg text-manuscript-ink-soft"
-            dir="rtl"
-            lang="ar"
-            aria-label={hero.arabicAriaLabel}
-          >
-            {hero.arabic}
-          </p>
-          <h1 className="hero-reveal hero-reveal-delay-1 font-display text-4xl font-semibold leading-tight tracking-tight text-manuscript-ink md:text-5xl">
-            {hero.headline}
-          </h1>
-          <p className="hero-reveal hero-reveal-delay-2 mt-5 max-w-[68ch] text-manuscript-ink-soft">
-            {hero.subline}
-          </p>
-          <div className="hero-reveal hero-reveal-delay-3 mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href={links.webApp}
-              target="_blank"
-              rel="noopener"
-              className="btn-primary"
-            >
-              {hero.primaryCta}
-            </a>
-            <a href="#downloads" className="btn-outline">
-              {hero.secondaryCta}
-            </a>
-          </div>
-          <p className="hero-reveal hero-reveal-delay-3 mt-4 text-sm text-manuscript-ink-soft">
-            {hero.trustLine}
-          </p>
-        </div>
-
-        {/* TODO(owner): replace mock with real app screenshot */}
-        <div
-          className="double-rule overflow-hidden rounded-frame bg-manuscript-paper p-4 md:p-5"
-          role="img"
-          aria-label={hero.mock.alt}
-        >
-          <div className="rounded-btn border border-manuscript-gold/25 bg-manuscript-paper-deep/60 p-4">
-            <div className="mb-4 flex items-center gap-2 rounded-btn border border-manuscript-ink/10 bg-manuscript-paper px-3 py-2">
-              <Search
-                className="shrink-0 text-manuscript-ink-soft"
-                size={16}
-                strokeWidth={1.5}
-                aria-hidden
-              />
-              <span className="text-sm text-manuscript-ink-soft">
-                {hero.mock.searchPlaceholder}
-              </span>
-            </div>
-            <div className="rounded-btn bg-manuscript-paper px-4 py-5" dir="rtl" lang="ar">
-              <div className="mb-3 flex items-baseline justify-between gap-3">
-                <h2 className="font-arabic text-xl font-bold text-manuscript-ink">
-                  {hero.mock.bookTitle}
-                </h2>
-                <span className="shrink-0 font-arabic text-sm text-manuscript-ink-soft">
-                  {hero.mock.pageLabel}
+    <section className="bg-brand-forest px-4 py-8 md:px-11 md:py-11">
+      <div className="double-frame">
+        <div className="double-frame-inner px-5 py-10 md:px-[72px] md:py-16">
+          <div className="flex flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-[72px]">
+            <div className="flex w-full max-w-[560px] flex-col gap-[22px] lg:shrink-0">
+              <div className="hero-reveal flex items-center gap-2.5">
+                <Rosette size={15} />
+                <span className="text-[13px] font-semibold tracking-[0.35em] text-brand-gold">
+                  {site.wordmark}
                 </span>
               </div>
-              <div className="mb-3 border-t border-manuscript-gold/30" />
-              <p className="font-arabic text-lg leading-loose text-manuscript-ink">
-                {hero.mock.body}
+
+              <p
+                className="hero-reveal hero-reveal-delay-1 m-0 font-arabic text-[22px] font-bold text-brand-gold md:text-[26px]"
+                dir="rtl"
+                lang="ar"
+                aria-label={hero.arabicAriaLabel}
+              >
+                {hero.arabic}
               </p>
+
+              <h1 className="hero-reveal hero-reveal-delay-1 m-0 font-display text-[34px] font-semibold leading-[1.12] tracking-[-0.01em] text-brand-paper md:text-[50px]">
+                {hero.headline}
+              </h1>
+
+              <p className="hero-reveal hero-reveal-delay-2 m-0 text-lg leading-[1.65] text-brand-paper/85">
+                {hero.subline}
+              </p>
+
+              <div className="hero-reveal hero-reveal-delay-3 mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+                <a
+                  href={links.webApp}
+                  target="_blank"
+                  rel="noopener"
+                  className="btn-gold px-[26px] py-3.5 text-[17px]"
+                >
+                  {hero.primaryCta}
+                </a>
+                <a
+                  href="#downloads"
+                  className="btn-outline-light px-[26px] py-[13px] text-[17px]"
+                >
+                  {hero.secondaryCta}
+                </a>
+              </div>
+
+              <p className="hero-reveal hero-reveal-delay-3 m-0 text-[15px] text-brand-paper/70">
+                {hero.trustLine}
+              </p>
+            </div>
+
+            <div className="flex flex-1 justify-center">
+              <img
+                src={hero.phoneSrc}
+                alt={hero.phoneAlt}
+                className="block h-auto w-[260px] rounded-phone border border-brand-gold/50 md:w-[330px]"
+                width={330}
+                height={714}
+              />
             </div>
           </div>
         </div>

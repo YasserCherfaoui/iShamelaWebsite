@@ -1,62 +1,33 @@
-import {
-  Globe,
-  Laptop,
-  Monitor,
-  Smartphone,
-  TabletSmartphone,
-  Terminal,
-  type LucideIcon,
-} from 'lucide-react'
 import { downloads } from '../content/copy'
-
-const icons: Record<(typeof downloads.platforms)[number]['icon'], LucideIcon> = {
-  Globe,
-  Smartphone,
-  TabletSmartphone,
-  Monitor,
-  Laptop,
-  Terminal,
-}
 
 export function Downloads() {
   return (
-    <section id={downloads.id} className="bg-manuscript-paper-deep">
-      <div className="mx-auto max-w-content px-5 py-24 md:px-8 md:py-28">
-        <h2 className="font-display text-3xl font-semibold tracking-tight text-manuscript-ink md:text-4xl">
+    <section id={downloads.id} className="bg-brand-forest py-16 md:py-[88px]">
+      <div className="mx-auto flex max-w-content flex-col gap-9 px-5 md:px-8">
+        <h2 className="m-0 font-display text-[28px] font-semibold text-brand-paper md:text-[34px]">
           {downloads.title}
         </h2>
-        <ul className="mt-10 divide-y divide-manuscript-gold/30 border-y border-manuscript-gold/30">
-          {downloads.platforms.map((platform) => {
-            const Icon = icons[platform.icon]
-            return (
-              <li
-                key={platform.id}
-                className="flex items-center justify-between gap-4 py-4"
+        <ul className="m-0 grid list-none grid-cols-1 gap-5 p-0 sm:grid-cols-2 md:grid-cols-3">
+          {downloads.platforms.map((platform) => (
+            <li
+              key={platform.id}
+              className="flex items-center justify-between gap-4 rounded-[10px] bg-brand-cream px-5 py-[18px]"
+            >
+              <span className="text-[17px] font-semibold text-brand-forest">
+                {platform.name}
+              </span>
+              <a
+                href={platform.href}
+                target="_blank"
+                rel="noopener"
+                className="link-text shrink-0 text-base"
               >
-                <div className="flex items-center gap-3">
-                  <Icon
-                    className="text-manuscript-madder"
-                    size={20}
-                    strokeWidth={1.5}
-                    aria-hidden
-                  />
-                  <span className="font-display text-lg font-semibold text-manuscript-ink">
-                    {platform.name}
-                  </span>
-                </div>
-                <a
-                  href={platform.href}
-                  target="_blank"
-                  rel="noopener"
-                  className="link-text shrink-0"
-                >
-                  {platform.action}
-                </a>
-              </li>
-            )
-          })}
+                {platform.action}
+              </a>
+            </li>
+          ))}
         </ul>
-        <p className="mt-6 text-sm text-manuscript-ink-soft">{downloads.note}</p>
+        <p className="m-0 text-[15px] text-brand-paper/75">{downloads.note}</p>
       </div>
     </section>
   )

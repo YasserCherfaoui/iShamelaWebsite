@@ -14,19 +14,18 @@ export function LegalLayout({
   children,
 }: LegalLayoutProps) {
   return (
-    <article className="mx-auto max-w-legal px-5 py-16 md:px-8 md:py-24">
-      <div className="prose-legal">
-        <header className="double-rule mb-10 rounded-frame px-5 py-6 md:px-8">
-          <h1>{title}</h1>
-          {lastUpdated && lastUpdatedLabel && (
-            <p className="mb-0 italic text-manuscript-ink-soft">
-              {lastUpdatedLabel}{' '}
-              <span className="todo-placeholder not-italic">{lastUpdated}</span>
-            </p>
-          )}
-        </header>
-        {children}
-      </div>
+    <article className="mx-auto flex max-w-legal flex-col gap-[26px] px-5 py-14 md:px-8 md:py-[72px]">
+      <header className="flex flex-col gap-2.5">
+        <h1 className="m-0 font-display text-[36px] font-semibold text-brand-forest md:text-[42px]">
+          {title}
+        </h1>
+        {lastUpdated && lastUpdatedLabel && (
+          <p className="m-0 text-[15px] italic text-brand-muted">
+            {lastUpdatedLabel} {lastUpdated}
+          </p>
+        )}
+      </header>
+      <div className="prose-legal flex flex-col gap-[26px]">{children}</div>
     </article>
   )
 }
@@ -34,28 +33,33 @@ export function LegalLayout({
 type RichPart =
   | { type: 'text'; text: string }
   | { type: 'link'; text: string; href: string }
-  | { type: 'todo'; text: string }
 
 export function RichText({ parts }: { parts: readonly RichPart[] }) {
   return (
     <>
       {parts.map((part, i) => {
         if (part.type === 'link') {
+          const isMailto = part.href.startsWith('mailto:')
           return (
-            <a key={i} href={part.href} target="_blank" rel="noopener">
+            <a
+              key={i}
+              href={part.href}
+              {...(isMailto ? {} : { target: '_blank', rel: 'noopener' })}
+            >
               {part.text}
             </a>
-          )
-        }
-        if (part.type === 'todo') {
-          return (
-            <span key={i} className="todo-placeholder">
-              {part.text}
-            </span>
           )
         }
         return <span key={i}>{part.text}</span>
       })}
     </>
+  )
+}
+
+export function LegalCallout({ children }: { children: ReactNode }) {
+  return (
+    <div className="double-frame">
+      <div className="double-frame-inner px-[26px] py-[22px]">{children}</div>
+    </div>
   )
 }

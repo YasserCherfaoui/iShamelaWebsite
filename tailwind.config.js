@@ -1,19 +1,17 @@
-import type { Config } from 'tailwindcss'
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
-        manuscript: {
-          paper: '#F7F2E7',
-          'paper-deep': '#EFE6D4',
-          ink: '#2B241C',
-          'ink-soft': '#6B5F4E',
-          gold: '#B8860B',
-          madder: '#8C3B2E',
-          'madder-deep': '#6E2C22',
-          sage: '#5C6B54',
+        brand: {
+          paper: '#F2E8CF',
+          cream: '#F8F2E2',
+          forest: '#0E3B30',
+          'forest-deep': '#101B17',
+          gold: '#C6A15B',
+          ink: '#1F2A24',
+          muted: '#55614F',
         },
       },
       fontFamily: {
@@ -26,12 +24,11 @@ const config: Config = {
         legal: '720px',
       },
       borderRadius: {
-        btn: '6px',
-        frame: '10px',
+        btn: '8px',
+        phone: '28px',
+        shot: '16px',
       },
     },
   },
   plugins: [],
 }
-
-export default config

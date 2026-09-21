@@ -9,10 +9,18 @@ export const links = {
   huggingfacePrivacy: 'https://huggingface.co/privacy',
   githubPrivacy:
     'https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement',
+  supportEmail: 'yasser.cherfaoui@gmail.com',
+} as const
+
+export const siteMeta = {
+  publicationDate: '21 September 2026',
+  license: 'MIT',
 } as const
 
 export const site = {
   name: 'iShamela',
+  wordmark: 'iSHAMELA',
+  logoAlt: 'iShamela logo',
   skipToContent: 'Skip to content',
   defaultTitle: 'iShamela — The Shamela library, offline and in your pocket',
   titles: {
@@ -24,6 +32,7 @@ export const site = {
 } as const
 
 export const nav = {
+  screens: 'Screens',
   features: 'Features',
   downloads: 'Downloads',
   support: 'Support',
@@ -65,22 +74,54 @@ export const footer = {
 } as const
 
 export const hero = {
-  arabic: 'اقرأ وابحث في تراث الأمة',
-  arabicAriaLabel: 'Read and search the heritage of the ummah',
+  arabic: 'المكتبةُ الشاملةُ في جيبِك',
+  arabicAriaLabel: 'The Shamela library in your pocket',
   headline: 'The Shamela library, offline and in your pocket.',
   subline:
     'iShamela is a free, open-source app for reading and searching thousands of classical Arabic books in the Islamic Sciences — tafsīr, ḥadīth, fiqh, ʿaqīdah, and more. Download the books you need once, then read and search them instantly, even without a connection.',
   primaryCta: 'Open the web app',
   secondaryCta: 'Download for your device',
   trustLine: 'Free forever · Open source · No account required',
-  mock: {
-    // TODO(owner): replace mock with real app screenshot
-    searchPlaceholder: 'Search across your library…',
-    bookTitle: 'فتح الباري شرح صحيح البخاري',
-    pageLabel: 'ص 142',
-    body: 'الحمد لله رب العالمين، والصلاة والسلام على أشرف الأنبياء والمرسلين، نبينا محمد وعلى آله وصحبه أجمعين. أما بعد: فهذا شرحٌ مختصرٌ يفتح للقارئ أبواب الفهم في كلام أهل العلم.',
-    alt: 'Stylized preview of the iShamela reader interface',
-  },
+  phoneAlt:
+    'iShamela library screen showing installed books and continue reading',
+  phoneSrc: '/assets/library.png',
+} as const
+
+export const screens = {
+  id: 'screens',
+  title: 'See it in use',
+  items: [
+    {
+      id: 'catalog',
+      src: '/assets/catalog.png',
+      alt: 'Catalog screen — browse thousands of classical texts by section',
+      caption: 'Catalog',
+    },
+    {
+      id: 'search',
+      src: '/assets/search.png',
+      alt: 'Search screen — instant results across titles and authors',
+      caption: 'Instant search',
+    },
+    {
+      id: 'reader-paper',
+      src: '/assets/reader-paper.png',
+      alt: 'Reader in paper theme with highlights and footnotes',
+      caption: 'Reader — paper',
+    },
+    {
+      id: 'reader-night',
+      src: '/assets/reader-night.png',
+      alt: 'Reader in night theme with annotation tools',
+      caption: 'Reader — night',
+    },
+    {
+      id: 'downloads',
+      src: '/assets/downloads.png',
+      alt: 'Downloads screen — download once, read fully offline',
+      caption: 'Downloads',
+    },
+  ],
 } as const
 
 export const features = {
@@ -233,8 +274,7 @@ export const support = {
       id: 'email',
       title: 'Email',
       body: "For anything you'd rather not post publicly:",
-      // TODO(owner): support email address
-      emailPlaceholder: 'TODO(owner): support email address',
+      email: links.supportEmail,
     },
   ],
   closing:
@@ -243,8 +283,7 @@ export const support = {
 
 export const privacy = {
   title: 'Privacy Policy',
-  // TODO(owner): date of publication
-  lastUpdated: 'TODO(owner): date of publication',
+  lastUpdated: siteMeta.publicationDate,
   lastUpdatedLabel: 'Last updated:',
   sections: [
     {
@@ -297,10 +336,10 @@ export const privacy = {
           type: 'text' as const,
           text: 'Questions about privacy: open an issue on our GitHub repository or write to ',
         },
-        // TODO(owner): support email address
         {
-          type: 'todo' as const,
-          text: 'TODO(owner): support email address',
+          type: 'link' as const,
+          text: links.supportEmail,
+          href: `mailto:${links.supportEmail}`,
         },
         { type: 'text' as const, text: '.' },
       ],
@@ -310,8 +349,7 @@ export const privacy = {
 
 export const terms = {
   title: 'Terms of Use',
-  // TODO(owner): date of publication
-  lastUpdated: 'TODO(owner): date of publication',
+  lastUpdated: siteMeta.publicationDate,
   lastUpdatedLabel: 'Last updated:',
   intro:
     'By using iShamela — the web app, the desktop and mobile apps, or this website — you agree to these terms.',
@@ -323,10 +361,9 @@ export const terms = {
           type: 'text' as const,
           text: 'iShamela is free, open-source software for reading and searching publicly available Arabic-language books in the Islamic Sciences. The application code is provided under the license published in the project repository (',
         },
-        // TODO(owner): confirm license name per LICENSING.md
         {
-          type: 'todo' as const,
-          text: 'TODO(owner): confirm license name per LICENSING.md',
+          type: 'text' as const,
+          text: siteMeta.license,
         },
         { type: 'text' as const, text: ').' },
       ],
@@ -358,10 +395,10 @@ export const terms = {
           type: 'text' as const,
           text: 'Open an issue on our GitHub repository or write to ',
         },
-        // TODO(owner): support email address
         {
-          type: 'todo' as const,
-          text: 'TODO(owner): support email address',
+          type: 'link' as const,
+          text: links.supportEmail,
+          href: `mailto:${links.supportEmail}`,
         },
         { type: 'text' as const, text: '.' },
       ],

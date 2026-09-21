@@ -1,4 +1,5 @@
 import { Hero } from '../components/Hero'
+import { ScreensGallery } from '../components/ScreensGallery'
 import { FeatureGrid } from '../components/FeatureGrid'
 import { HowItWorks } from '../components/HowItWorks'
 import { OpenSource } from '../components/OpenSource'
@@ -13,6 +14,7 @@ export function Home() {
   return (
     <>
       <Hero />
+      <ScreensGallery />
       <FeatureGrid />
       <HowItWorks />
       <OpenSource />

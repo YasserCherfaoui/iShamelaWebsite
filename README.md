@@ -32,9 +32,9 @@ All user-facing strings are in [`src/content/copy.ts`](src/content/copy.ts). Do 
 
 | File | Notes |
 |---|---|
-| `public/favicon.svg` | Placeholder “ش” glyph. Marked `TODO(owner): replace with final SPEC-020 logo`. |
-| `public/og-image.png` | 1200×630 placeholder. Replace when brand boards are ready. |
-| Hero app preview | HTML/CSS mock in `src/components/Hero.tsx`. Marked `TODO(owner): replace mock with real app screenshot`. |
+| `public/favicon.svg` / `public/assets/logo.svg` | Brand mark from SPEC-020. |
+| `public/assets/*.png` | App Store screenshots used in hero and “See it in use”. |
+| `public/og-image.png` | 1200×630 social preview. Regenerate if brand copy changes. |
 
 ## Version badge
 
