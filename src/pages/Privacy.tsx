@@ -12,8 +12,7 @@ export function Privacy() {
       lastUpdatedLabel={privacy.lastUpdatedLabel}
     >
       {privacy.sections.map((section, i) => {
-        const isCallout =
-          'heading' in section && section.heading === 'What we collect: nothing.'
+        const isCallout = 'callout' in section && section.callout
 
         if (isCallout) {
           return (

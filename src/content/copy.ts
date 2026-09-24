@@ -9,6 +9,9 @@ export const links = {
   huggingfacePrivacy: 'https://huggingface.co/privacy',
   githubPrivacy:
     'https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement',
+  googlePrivacy: 'https://policies.google.com/privacy',
+  applePrivacy: 'https://www.apple.com/legal/privacy/',
+  resendPrivacy: 'https://resend.com/legal/privacy-policy',
   supportEmail: 'yasser.cherfaoui@gmail.com',
 } as const
 
@@ -283,51 +286,104 @@ export const support = {
 
 export const privacy = {
   title: 'Privacy Policy',
-  lastUpdated: siteMeta.publicationDate,
+  lastUpdated: '24 September 2026',
   lastUpdatedLabel: 'Last updated:',
   sections: [
     {
-      body: 'iShamela is designed so that we know as little about you as possible.',
+      body: 'iShamela is designed so that we know as little about you as possible. The library works without an account. An account exists only so you can sync your own reading data between devices.',
     },
     {
-      heading: 'What we collect: nothing.',
-      body: 'iShamela has no accounts, no sign-up, no analytics, no advertising, and no tracking of any kind. We do not collect, store, or share personal information. The landing page you are reading sets no cookies.',
+      heading: 'Accounts are optional.',
+      callout: true,
+      body: 'You can keep using iShamela as a guest. Without an account we do not collect, store, or share personal information about you. There is no analytics, no advertising, and no tracking. This website sets no cookies. If you choose to sign in, the rest of this policy describes what is stored and why.',
+    },
+    {
+      heading: 'What an account stores.',
+      bodyParts: [
+        {
+          type: 'text' as const,
+          text: 'Signing in is optional and uses Apple, Google, or an email address and password. If you create an account, we store an account identifier, your email address, your display name, and — when your sign-in provider supplies one — a profile photo URL. We also store the data you create in the app so it can sync between your phone, tablet, and the web app: reading history, bookmarks, notes, reading progress, and the list of books on your bookshelf. Book files themselves are never uploaded. That list only names books, and each device downloads the files from Hugging Face as before. Account data is hosted on Google Firebase (Firebase Authentication and Cloud Firestore), in a record that only your account can read or write. We do not sell it, share it for advertising, or use it for analytics. See the ',
+        },
+        {
+          type: 'link' as const,
+          text: 'Google Privacy Policy',
+          href: links.googlePrivacy,
+        },
+        { type: 'text' as const, text: '.' },
+      ],
+    },
+    {
+      heading: 'Email codes.',
+      bodyParts: [
+        {
+          type: 'text' as const,
+          text: 'If you sign up or reset a password with email, we send a 6-digit code to that address. We store only a hash of the code, and it expires within ten minutes. The message is sent by Resend and is used only for that verification or reset — never for newsletters or marketing. See the ',
+        },
+        {
+          type: 'link' as const,
+          text: 'Resend Privacy Policy',
+          href: links.resendPrivacy,
+        },
+        { type: 'text' as const, text: '.' },
+      ],
     },
     {
       heading: 'Where your data lives.',
-      body: "Your reading history, bookmarks, notes, and installed books are stored locally on your device (or in your browser's local storage when using the web app). They never leave your device, and we cannot see them. Uninstalling the app or clearing your browser data deletes them.",
+      body: "On each device, your reading history, bookmarks, notes, and installed books stay in local storage (or in your browser's storage on the web app). That local copy remains yours on the device. When you are signed in, a copy is also kept in your account so your devices can stay in sync. The first time you sign in on a device, data already on that device is merged into your account; it is not wiped. Signing out leaves the local copy in place. Uninstalling the app, or clearing your browser data, deletes only what is stored on that device.",
+    },
+    {
+      heading: 'Deleting your account.',
+      body: 'You can delete your account from the profile screen in the app. Deletion removes your sign-in and everything synced to the account. Data already on the device you are using is kept unless you also choose to delete it there. If you cannot use the in-app flow, write to us and we will delete the account.',
     },
     {
       heading: 'Network requests the app makes.',
       bodyParts: [
         {
           type: 'text' as const,
-          text: 'The app connects to the internet only to (a) download the book catalog and book bundles, which are hosted on Hugging Face, and (b) check GitHub for app updates and release information. These requests go directly from your device to those services, which may log standard technical data (such as your IP address) under their own privacy policies: the ',
+          text: 'The app connects to the internet to (a) download the book catalog and book bundles, which are hosted on Hugging Face, (b) check GitHub for app updates and release information, and (c) if you are signed in, authenticate and sync your account with Firebase — including Sign in with Apple or Google when you use those options — and send email codes through Resend. These requests go from your device to those services, which may log standard technical data (such as your IP address) under their own privacy policies: the ',
         },
         {
           type: 'link' as const,
           text: 'Hugging Face Privacy Policy',
           href: links.huggingfacePrivacy,
         },
-        { type: 'text' as const, text: ' and the ' },
+        { type: 'text' as const, text: ', the ' },
         {
           type: 'link' as const,
           text: 'GitHub Privacy Statement',
           href: links.githubPrivacy,
         },
+        { type: 'text' as const, text: ', the ' },
+        {
+          type: 'link' as const,
+          text: 'Google Privacy Policy',
+          href: links.googlePrivacy,
+        },
+        { type: 'text' as const, text: ', the ' },
+        {
+          type: 'link' as const,
+          text: 'Apple Privacy Policy',
+          href: links.applePrivacy,
+        },
+        { type: 'text' as const, text: ', and the ' },
+        {
+          type: 'link' as const,
+          text: 'Resend Privacy Policy',
+          href: links.resendPrivacy,
+        },
         {
           type: 'text' as const,
-          text: '. We receive nothing from these requests.',
+          text: '. Book downloads and update checks do not send us your reading data. Firebase receives account data only when you are signed in.',
         },
       ],
     },
     {
       heading: 'Children.',
-      body: "Because we collect no data, there is no additional processing of children's data. The app is suitable for all ages.",
+      body: 'The app is suitable for all ages, and an account is never required to read. We do not use any information for advertising. A parent who wants an account removed can delete it in the app or write to us.',
     },
     {
       heading: 'Changes.',
-      body: 'If a future feature ever requires collecting any data, we will update this policy first and state clearly what is collected and why. Material changes will be noted in the app\'s release notes.',
+      body: "If we start collecting anything beyond what this policy describes, we will update it first and state clearly what is collected and why. Material changes will be noted in the app's release notes.",
     },
     {
       heading: 'Contact.',
